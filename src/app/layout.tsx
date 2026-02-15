@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LoadingScreen } from "@/components/LoadingScreen";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="bg">
       <body className="min-h-screen flex flex-col">
+        <LoadingScreen />
         <header className="sticky top-0 z-20 border-b border-amber-200/80 bg-[var(--color-card)] backdrop-blur-sm shadow-[var(--shadow-sm)]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
             <Link
@@ -30,8 +32,7 @@ export default function RootLayout({
           {children}
         </main>
         <footer className="mt-auto border-t border-amber-200/80 bg-[var(--color-parchment-dark)]/50 py-4 px-4 text-center text-sm text-[var(--color-ink-muted)]">
-          Оригинални текстове от Иврит — Стар завет. Създадено от{" "}
-          <a href="https://pvidev.dev/" target="_blank" rel="noopener noreferrer" className="text-amber-800 hover:text-amber-900 underline">PVidev Dev</a>.
+          ⰔⰟⰸⰴⰰⰴⰵⰽⰑ Ⱁⱅ ⰒⰵⰹⰑ ⰂⰻⰴⰵⰂ ⰸⰰ Ⰲⱄⰵⰽⰻ ⰒⱃⰰⰂⱁⱄⰾⰰⰲⱀⰻ Ⱈⱃⰻⱄⱅⰻⰰⱀⰻ
         </footer>
       </body>
     </html>
