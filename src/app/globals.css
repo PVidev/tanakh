@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=David+Libre:wght@400;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-parchment: #f5f0e6;
+  --color-parchment-dark: #e8e0d0;
+  --color-ink: #2c2416;
+  --color-ink-muted: #5c5344;
+  --color-accent: #8b6914;
+  --color-accent-hover: #6d5210;
+  --color-card: rgba(255, 255, 255, 0.85);
+  --color-card-hover: rgba(255, 251, 243, 0.95);
+  --shadow-sm: 0 1px 3px rgba(44, 36, 22, 0.06);
+  --shadow-md: 0 4px 12px rgba(44, 36, 22, 0.08);
+  --radius: 12px;
+  --radius-btn: 10px;
+  --tap-min: 44px;
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply antialiased;
+    background: var(--color-parchment);
+    color: var(--color-ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+}
+
+.font-hebrew {
+  font-family: 'David Libre', serif;
+  direction: rtl;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium rounded-[var(--radius-btn)] transition-colors focus:outline-none focus:ring-2 focus:ring-amber-600/30 focus:ring-offset-2 focus:ring-offset-[var(--color-parchment)];
+    min-height: var(--tap-min);
+    padding: 0.5rem 1rem;
+  }
+  .btn-primary {
+    @apply bg-amber-800 text-amber-50 hover:bg-amber-900 shadow-sm;
+  }
+  .btn-secondary {
+    @apply bg-white/90 text-amber-900 border border-amber-200 hover:bg-amber-50/90;
+  }
+  .btn-ghost {
+    @apply text-amber-900/80 hover:text-amber-900 hover:bg-amber-100/50;
+  }
+  .card {
+    @apply rounded-[var(--radius)] border border-amber-200/60 bg-[var(--color-card)] shadow-[var(--shadow-sm)] transition-all duration-200;
+  }
+  .card-hover:hover {
+    background: var(--color-card-hover);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* Респонзивни стихове – по-добро четене на малък екран */
+.verse-row {
+  @apply grid gap-3 py-4;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .verse-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
